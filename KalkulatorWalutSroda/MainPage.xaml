@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="KalkulatorWalutSroda.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KalkulatorWalutSroda"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="SzablonWaluty">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding KodWaluty}"></TextBlock>
+                <TextBlock Text=" ➡️ "></TextBlock>
+                <TextBlock Text="{Binding KursSredni}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+
+    <Grid Loaded="Grid_Loaded">
+        <StackPanel Margin="49,50,0,0">
+            <TextBlock Text="Kalkulator walut" FontStyle="Oblique" FontSize="30" Foreground="Cornsilk" FontFamily="Baskerville Old Face" Margin="0,0,0,50"></TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="Kwota: " Margin="0,0,20,0" FontSize="20"/>
+                <TextBox Width="150" x:Name="KwotaTbx"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                <TextBlock Text="Kwota przeliczona: " Margin="0,0,20,0" FontSize="20"/>
+                <TextBlock Width="150" Text="0" FontSize="20" Foreground="LightBlue" x:Name="PrzeliczonaTb"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ListBox Height="200" x:Name="WalutaWejscieLb" SelectedIndex="0" ItemTemplate="{StaticResource SzablonWaluty}"/>
+                <ListBox Height="200" x:Name="WalutaWyjscieLb" SelectedIndex="0" ItemTemplate="{StaticResource SzablonWaluty}" />
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>
