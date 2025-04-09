@@ -22,17 +22,21 @@
     <Grid Loaded="Grid_Loaded">
         <StackPanel Margin="49,50,0,0">
             <TextBlock Text="Kalkulator walut" FontStyle="Oblique" FontSize="30" Foreground="Cornsilk" FontFamily="Baskerville Old Face" Margin="0,0,0,50"></TextBlock>
+            <StackPanel Height="50" VerticalAlignment="Center">
+                
+            <TextBlock x:Name="BladTb" Text="Podano nieprawidłową kwotę" Foreground="LightCoral" Visibility="Collapsed"></TextBlock>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
                 <TextBlock Text="Kwota: " Margin="0,0,20,0" FontSize="20"/>
-                <TextBox Width="150" x:Name="KwotaTbx"/>
+                <TextBox Width="150" x:Name="KwotaTbx" TextChanged="KwotaTbx_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
                 <TextBlock Text="Kwota przeliczona: " Margin="0,0,20,0" FontSize="20"/>
                 <TextBlock Width="150" Text="0" FontSize="20" Foreground="LightBlue" x:Name="PrzeliczonaTb"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <ListBox Height="200" x:Name="WalutaWejscieLb" SelectedIndex="0" ItemTemplate="{StaticResource SzablonWaluty}"/>
-                <ListBox Height="200" x:Name="WalutaWyjscieLb" SelectedIndex="0" ItemTemplate="{StaticResource SzablonWaluty}" />
+                <ListBox Height="200" x:Name="WalutaWejscieLb" SelectedIndex="0" ItemTemplate="{StaticResource SzablonWaluty}" SelectionChanged="Waluta_SelectionChanged"/>
+                <ListBox Height="200" x:Name="WalutaWyjscieLb" SelectedIndex="0" ItemTemplate="{StaticResource SzablonWaluty}" SelectionChanged="Waluta_SelectionChanged" />
             </StackPanel>
         </StackPanel>
 
